@@ -34,7 +34,7 @@ CREATE TABLE Orders (
   Address VARCHAR(255) NOT NULL,
   Note VARCHAR(500),
   PaymentMethod VARCHAR(50) NOT NULL DEFAULT 'COD',
-  Status VARCHAR(50) NOT NULL DEFAULT 'PENDING',
+  Status VARCHAR(50) NOT NULL DEFAULT 'NEW',
   TotalAmount DOUBLE NOT NULL,
   CONSTRAINT FK_Orders_Users FOREIGN KEY (Username) REFERENCES Users(Username) ON DELETE SET NULL
 );
@@ -64,3 +64,24 @@ INSERT INTO Videos(Title, Poster, Views, Description, Active, CategoryId, Price)
 ('Phim ngắn cuối tuần', 'https://placehold.co/320x180?text=Film', 75, 'Một phim ngắn thú vị.', TRUE, 2, 180000),
 ('Trò chơi vui nhộn', 'https://placehold.co/320x180?text=Game', 166, 'Giải trí cùng trò chơi.', TRUE, 2, 99000),
 ('Pop Việt', 'https://placehold.co/320x180?text=Pop', 86, 'Những ca khúc pop.', TRUE, 1, 140000);
+
+INSERT INTO Orders(OrderId, OrderDate, Username, CustomerName, Phone, Address, Note, PaymentMethod, Status, TotalAmount) VALUES
+(1, NOW() - INTERVAL 10 HOUR, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Giao sáng', 'COD', 'NEW', 120000),
+(2, NOW() - INTERVAL 8 HOUR, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Giao trưa', 'COD', 'CONFIRMED', 150000),
+(3, NOW() - INTERVAL 6 HOUR, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Gói cẩn thận', 'COD', 'PREPARING', 200000),
+(4, NOW() - INTERVAL 1 DAY, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Giao chiều', 'COD', 'SHIPPING', 250000),
+(5, NOW() - INTERVAL 2 DAY, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Gọi trước khi đến', 'COD', 'DELIVERING', 180000),
+(6, NOW() - INTERVAL 3 DAY, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Đã nhận đủ', 'COD', 'DELIVERED', 99000),
+(7, NOW() - INTERVAL 4 DAY, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Khách đổi ý', 'COD', 'CANCELLED', 140000),
+(8, NOW() - INTERVAL 5 DAY, 'huy24162044', 'Ngô Gia Huy', '0987654321', 'Số 1 Võ Văn Ngân, TP Thủ Đức', 'Hàng lỗi cần hoàn', 'COD', 'RETURNED', 120000);
+
+INSERT INTO Order_Details(OrderDetailId, OrderId, VideoId, Price, Quantity, Subtotal) VALUES
+(1, 1, 1, 120000, 1, 120000),
+(2, 2, 2, 150000, 1, 150000),
+(3, 3, 3, 200000, 1, 200000),
+(4, 4, 4, 250000, 1, 250000),
+(5, 5, 5, 180000, 1, 180000),
+(6, 6, 6, 99000, 1, 99000),
+(7, 7, 7, 140000, 1, 140000),
+(8, 8, 1, 120000, 1, 120000);
+

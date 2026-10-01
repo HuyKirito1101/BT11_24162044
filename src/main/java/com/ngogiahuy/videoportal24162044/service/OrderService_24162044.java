@@ -11,5 +11,7 @@ public interface OrderService_24162044 {
                                   String address, String note);
     Order_24162044 getOrderById(Integer orderId);
     List<Order_24162044> getOrdersByUser(String username);
+    List<Order_24162044> getOrdersByUserAndStatus(String username, String status);
+    java.util.Map<String, Long> countOrdersByStatusForUser(String username);
     List<Order_24162044> getAllOrders();
 }

@@ -49,7 +49,7 @@
                 <h3 style="font-size: 1rem; font-weight: 700; color: #334155; margin-bottom: 10px;">💳 Thanh Toán & Vận Chuyển</h3>
                 <div style="font-size: 0.95rem; color: #0f172a; line-height: 1.6;">
                     <div><strong>Phương thức:</strong> <span class="badge-cod">💵 COD (Thanh toán khi nhận hàng)</span></div>
-                    <div style="margin-top: 6px;"><strong>Trạng thái:</strong> <span class="badge-pending">${order.statusDisplayName}</span></div>
+                    <div style="margin-top: 6px;"><strong>Trạng thái:</strong> <span class="${order.statusBadgeClass}">${order.statusDisplayName}</span></div>
                     <div style="margin-top: 6px; font-size: 0.85rem; color: #64748b;">
                         <em>* Vui lòng chuẩn bị đúng số tiền khi nhận hàng từ bưu tá.</em>
                     </div>

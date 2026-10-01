@@ -41,7 +41,7 @@
                 <h3 style="font-size: 1rem; font-weight: 700; color: #334155; margin-bottom: 10px;">💳 Thanh Toán & Trạng Thái</h3>
                 <div style="font-size: 0.95rem; color: #0f172a; line-height: 1.6;">
                     <div><strong>Phương thức thanh toán:</strong> <span class="badge-cod">${order.paymentMethod} (Thanh toán khi nhận hàng)</span></div>
-                    <div style="margin-top: 6px;"><strong>Trạng thái:</strong> <span class="badge-pending">${order.statusDisplayName}</span></div>
+                    <div style="margin-top: 6px;"><strong>Trạng thái:</strong> <span class="${order.statusBadgeClass}">${order.statusDisplayName}</span></div>
                     <c:if test="${not empty order.user}">
                         <div style="margin-top: 6px;"><strong>Tài khoản đặt:</strong> <c:out value="${order.user.username}"/></div>
                     </c:if>

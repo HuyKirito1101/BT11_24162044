@@ -66,8 +66,20 @@ public class OrderController_24162044 extends BaseController_24162044 {
             return;
         }
 
-        List<Order_24162044> orders = orderService.getOrdersByUser(currentUser.getUsername());
+        String statusParam = req.getParameter("status");
+        if (statusParam == null || statusParam.isBlank()) {
+            statusParam = "ALL";
+        } else {
+            statusParam = statusParam.trim().toUpperCase();
+        }
+
+        List<Order_24162044> orders = orderService.getOrdersByUserAndStatus(currentUser.getUsername(), statusParam);
+        java.util.Map<String, Long> statusCounts = orderService.countOrdersByStatusForUser(currentUser.getUsername());
+
         req.setAttribute("orders", orders);
+        req.setAttribute("selectedStatus", statusParam);
+        req.setAttribute("statusCounts", statusCounts);
+        req.setAttribute("statuses", com.ngogiahuy.videoportal24162044.entity.OrderStatus_24162044.values());
         view(req, resp, "user/orders.jsp");
     }
 }

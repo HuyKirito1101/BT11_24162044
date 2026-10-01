@@ -99,12 +99,15 @@ public class Order_24162044 implements Serializable {
         return orderDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
     }
 
+    public OrderStatus_24162044 getOrderStatus() {
+        return OrderStatus_24162044.from(status);
+    }
+
     public String getStatusDisplayName() {
-        if ("PENDING".equalsIgnoreCase(status)) return "Chờ xử lý (COD)";
-        if ("CONFIRMED".equalsIgnoreCase(status)) return "Đã xác nhận";
-        if ("SHIPPING".equalsIgnoreCase(status)) return "Đang giao hàng";
-        if ("COMPLETED".equalsIgnoreCase(status)) return "Hoàn thành";
-        if ("CANCELLED".equalsIgnoreCase(status)) return "Đã hủy";
-        return status;
+        return getOrderStatus().getDisplayName();
+    }
+
+    public String getStatusBadgeClass() {
+        return getOrderStatus().getBadgeClass();
     }
 }

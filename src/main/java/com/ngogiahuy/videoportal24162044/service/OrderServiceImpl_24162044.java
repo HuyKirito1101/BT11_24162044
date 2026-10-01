@@ -46,7 +46,7 @@ public class OrderServiceImpl_24162044 implements OrderService_24162044 {
         order.setAddress(address.strip());
         order.setNote(note != null ? note.strip() : null);
         order.setPaymentMethod("COD");
-        order.setStatus("PENDING");
+        order.setStatus("NEW");
         order.setTotalAmount(cart.getTotalAmount());
 
         for (CartItem_24162044 item : cart.getItems()) {
@@ -71,6 +71,28 @@ public class OrderServiceImpl_24162044 implements OrderService_24162044 {
     @Override
     public List<Order_24162044> getOrdersByUser(String username) {
         return orderRepository.findByUsername(username);
+    }
+
+    @Override
+    public List<Order_24162044> getOrdersByUserAndStatus(String username, String status) {
+        List<Order_24162044> all = getOrdersByUser(username);
+        if (status == null || status.isBlank() || "ALL".equalsIgnoreCase(status)) {
+            return all;
+        }
+        OrderStatus_24162044 target = OrderStatus_24162044.from(status);
+        return all.stream().filter(o -> o.getOrderStatus() == target).toList();
+    }
+
+    @Override
+    public java.util.Map<String, Long> countOrdersByStatusForUser(String username) {
+        List<Order_24162044> all = getOrdersByUser(username);
+        java.util.Map<String, Long> counts = new java.util.LinkedHashMap<>();
+        counts.put("ALL", (long) all.size());
+        for (OrderStatus_24162044 st : OrderStatus_24162044.values()) {
+            long c = all.stream().filter(o -> o.getOrderStatus() == st).count();
+            counts.put(st.getCode(), c);
+        }
+        return counts;
     }
 
     @Override

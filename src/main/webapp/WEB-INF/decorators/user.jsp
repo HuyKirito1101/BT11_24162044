@@ -414,8 +414,65 @@
         .btn-success { background: #16a34a; color: #fff; }
         .btn-success:hover { background: #15803d; }
         .badge-cod { background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
-        .badge-pending { background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
-        .badge-completed { background: #dcfce7; color: #15803d; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+
+        /* 8 Order Status Badges */
+        .badge-new { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-confirmed { background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-preparing { background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-shipping { background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-delivering { background: #f3e8ff; color: #6b21a8; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-delivered { background: #dcfce7; color: #15803d; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-cancelled { background: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+        .badge-returned { background: #ffedd5; color: #9a3412; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-block; }
+
+        /* Order Filter Tabs */
+        .order-tabs-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 6px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+        .order-tabs {
+            display: flex;
+            gap: 6px;
+            min-width: max-content;
+        }
+        .order-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .order-tab:hover {
+            color: var(--primary);
+            background: #f1f5f9;
+        }
+        .order-tab.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+        .tab-badge {
+            background: rgba(0, 0, 0, 0.08);
+            color: inherit;
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .order-tab.active .tab-badge {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
 
         @media(max-width: 768px) {
             .bar { flex-wrap: wrap; padding: 12px 16px; gap: 10px; }
