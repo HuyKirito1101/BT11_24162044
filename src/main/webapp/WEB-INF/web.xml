@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0">
+  <display-name>Video Portal 24162044</display-name>
+  <filter><filter-name>requestFilter</filter-name><filter-class>com.ngogiahuy.videoportal24162044.controller.RequestFilter_24162044</filter-class></filter>
+  <filter-mapping><filter-name>requestFilter</filter-name><url-pattern>/*</url-pattern></filter-mapping>
+  <filter><filter-name>sitemesh</filter-name><filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class></filter>
+  <filter-mapping><filter-name>sitemesh</filter-name><url-pattern>/*</url-pattern><dispatcher>REQUEST</dispatcher><dispatcher>FORWARD</dispatcher></filter-mapping>
+  <filter><filter-name>adminFilter</filter-name><filter-class>com.ngogiahuy.videoportal24162044.controller.AdminAuthorizationFilter_24162044</filter-class></filter>
+  <filter-mapping><filter-name>adminFilter</filter-name><url-pattern>/admin/*</url-pattern></filter-mapping>
+  <welcome-file-list><welcome-file>home</welcome-file></welcome-file-list>
+</web-app>
